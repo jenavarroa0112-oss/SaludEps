@@ -23,7 +23,7 @@ export default function MedicationDetail() {
     >
       <button 
         onClick={() => navigate(-1)} 
-        className="flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors w-fit"
+        className="md:hidden flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-text-main)] transition-colors w-fit"
       >
         <ArrowLeft className="w-5 h-5" />
         <span className="font-medium">Volver</span>
