@@ -1,0 +1,6 @@
+{
+  "name": "SaludEps",
+  "description": "Que ningún adulto mayor se quede sin su medicamento a tiempo",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
