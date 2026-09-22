@@ -32,22 +32,29 @@ export default function Home() {
         <span className="text-gray-400">Buscar un medicamento...</span>
       </div>
 
-      {/* Summary Badges */}
-      <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
-        <div className="flex-shrink-0 bg-[var(--color-primary)]/10 text-[var(--color-primary)] px-4 py-3 rounded-2xl flex flex-col items-start min-w-[110px]">
-          <span className="text-2xl font-bold">{stats.enCamino}</span>
-          <span className="text-xs font-semibold uppercase tracking-wider">En camino</span>
-        </div>
-        <div className="flex-shrink-0 bg-[var(--color-warning)]/10 text-[var(--color-warning)] px-4 py-3 rounded-2xl flex flex-col items-start min-w-[110px]">
-          <span className="text-2xl font-bold">{stats.listos}</span>
-          <span className="text-xs font-semibold uppercase tracking-wider">Para recoger</span>
-        </div>
-        {stats.retrasados > 0 && (
-          <div className="flex-shrink-0 bg-[var(--color-danger)]/10 text-[var(--color-danger)] px-4 py-3 rounded-2xl flex flex-col items-start min-w-[110px]">
-            <span className="text-2xl font-bold">{stats.retrasados}</span>
-            <span className="text-xs font-semibold uppercase tracking-wider">Retrasados</span>
+      {/* Context line for status overview */}
+      <div className="flex flex-col gap-2">
+        <p className="text-sm md:text-base text-[var(--color-text-muted)]">
+          Aquí puedes ver el estado de entrega de tus medicamentos con <span className="font-semibold text-[var(--color-text-main)]">{user.eps}</span>.
+        </p>
+
+        {/* Summary Badges */}
+        <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+          <div className="flex-shrink-0 bg-[var(--color-primary)]/10 text-[var(--color-primary)] px-4 py-3 rounded-2xl flex flex-col items-start min-w-[110px]">
+            <span className="text-2xl font-bold">{stats.enCamino}</span>
+            <span className="text-xs font-semibold uppercase tracking-wider">En camino</span>
           </div>
-        )}
+          <div className="flex-shrink-0 bg-[var(--color-warning)]/10 text-[var(--color-warning)] px-4 py-3 rounded-2xl flex flex-col items-start min-w-[110px]">
+            <span className="text-2xl font-bold">{stats.listos}</span>
+            <span className="text-xs font-semibold uppercase tracking-wider">Para recoger</span>
+          </div>
+          {stats.retrasados > 0 && (
+            <div className="flex-shrink-0 bg-[var(--color-danger)]/10 text-[var(--color-danger)] px-4 py-3 rounded-2xl flex flex-col items-start min-w-[110px]">
+              <span className="text-2xl font-bold">{stats.retrasados}</span>
+              <span className="text-xs font-semibold uppercase tracking-wider">Retrasados</span>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Next Delivery Highlight */}

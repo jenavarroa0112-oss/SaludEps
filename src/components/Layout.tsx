@@ -23,13 +23,28 @@ export default function Layout() {
       
       {/* Desktop Sidebar */}
       <aside className="hidden md:flex flex-col w-72 bg-[var(--color-surface)] border-r border-gray-100 p-6 sticky top-0 h-screen overflow-y-auto z-20">
-        <div className="flex items-center gap-4 mb-10 px-2">
-          <div className="w-12 h-12 rounded-full bg-[var(--color-primary-light)] text-white flex items-center justify-center font-bold text-xl flex-shrink-0">
+        {/* App Branding & Tagline (Header fijo de marca) */}
+        <div className="pb-5 mb-5 border-b border-gray-100 px-2">
+          <div className="flex items-center gap-2.5 mb-1">
+            <div className="w-8 h-8 rounded-xl bg-[var(--color-primary)] text-white flex items-center justify-center shadow-sm">
+              <Pill className="w-5 h-5" strokeWidth={2.2} />
+            </div>
+            <span className="text-xl font-extrabold tracking-tight text-[var(--color-text-main)]">SaludEps</span>
+          </div>
+          <p className="text-xs text-[var(--color-text-muted)] font-medium leading-tight">
+            Seguimiento de tus medicamentos EPS
+          </p>
+        </div>
+
+        {/* User Card (Perfil actual como tarjeta suave) */}
+        <div className="flex items-center gap-3.5 mb-6 p-3 rounded-2xl bg-[#F7F5F0] border border-stone-200/50">
+          <div className="w-10 h-10 rounded-full bg-[var(--color-primary-light)] text-white flex items-center justify-center font-bold text-base flex-shrink-0 shadow-xs">
             {user.nombre_paciente.charAt(0)}
           </div>
           <div className="overflow-hidden">
-            <h1 className="text-lg font-bold truncate text-[var(--color-text-main)]">{user.nombre_paciente}</h1>
-            <p className="text-sm text-[var(--color-text-muted)] truncate">{user.eps}</p>
+            <h2 className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider font-semibold">Paciente</h2>
+            <p className="text-sm font-bold truncate text-[var(--color-text-main)] leading-tight">{user.nombre_paciente}</p>
+            <p className="text-xs text-[var(--color-primary)] font-medium truncate">{user.eps}</p>
           </div>
         </div>
 
@@ -60,14 +75,19 @@ export default function Layout() {
       <div className="flex-1 flex flex-col min-h-screen w-full relative">
         
         {/* Top Header - Mobile Only */}
-        <header className="md:hidden bg-[var(--color-surface)] shadow-sm sticky top-0 z-10 px-4 py-4 flex justify-between items-center">
+        <header className="md:hidden bg-[var(--color-surface)] shadow-sm sticky top-0 z-10 px-4 py-3 flex justify-between items-center border-b border-gray-100">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[var(--color-primary-light)] text-white flex items-center justify-center font-bold text-lg">
+            <div className="w-10 h-10 rounded-full bg-[var(--color-primary-light)] text-white flex items-center justify-center font-bold text-lg flex-shrink-0">
               {user.nombre_paciente.charAt(0)}
             </div>
             <div>
-              <h1 className="text-lg font-bold">Hola, {user.nombre_paciente.split(' ')[0]}</h1>
-              <p className="text-sm text-[var(--color-text-muted)]">{user.eps}</p>
+              <div className="flex items-center gap-2">
+                <h1 className="text-base font-bold leading-tight">Hola, {user.nombre_paciente.split(' ')[0]}</h1>
+                <span className="text-xs text-[var(--color-text-muted)]">({user.eps})</span>
+              </div>
+              <p className="text-xs text-[var(--color-text-muted)] font-medium leading-tight mt-0.5">
+                Seguimiento de tus medicamentos EPS
+              </p>
             </div>
           </div>
           <Link to="/notifications" className="relative p-2 rounded-full hover:bg-gray-100 transition-colors">
